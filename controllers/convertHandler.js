@@ -51,9 +51,7 @@ function ConvertHandler() {
   };
   
   this.getReturnUnit = function(initUnit) {
-    let result;
-    
-    return result;
+    return this.unitMap[initUnit];
   };
 
   this.spellOutUnit = function(unit) {
