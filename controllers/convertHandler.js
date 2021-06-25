@@ -71,9 +71,17 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result;
+
+    const convertMap = {
+      gal: initNum * galToL,
+      L: initNum / galToL,
+      lbs: initNum * lbsToKg,
+      kg: initNum / lbsToKg,
+      mi: initNum * miToKm,
+      km: initNum / miToKm,
+    };
     
-    return result;
+    return parseFloat(convertMap[initUnit].toFixed(5));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
