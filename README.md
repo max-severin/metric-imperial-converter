@@ -48,4 +48,4 @@ Functional Tests:
 
 
 The project available on replit.com  
-https://replit.com/@maxseverin/metric-imperial-converter
+https://metric-imperial-converter.maxseverin.repl.co/
