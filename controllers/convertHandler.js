@@ -1,4 +1,12 @@
 function ConvertHandler() {
+  this.unitMap = {
+    gal: 'L',
+    L: 'gal',
+    lbs: 'kg',
+    kg: 'lbs',
+    mi: 'km',
+    km: 'mi',
+  };
   
   this.getNum = function(input) {
     let result = input.replace(/[a-zA-Z]+$/, '');
@@ -25,9 +33,21 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    let result;
-    
-    return result;
+    const unitRegExp = /[a-zA-Z]+$/;
+
+    if (unitRegExp.test(input)) {
+      let result = input.toLowerCase().match(unitRegExp);
+
+      result = result[0] === 'l'
+                  ? 'L' 
+                  : result[0].toLowerCase();
+
+      if (Object.keys(this.unitMap).includes(result)){
+        return result;
+      }      
+    }
+
+    return 'invalid unit';
   };
   
   this.getReturnUnit = function(initUnit) {
