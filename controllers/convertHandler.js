@@ -1,7 +1,25 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    let result;
+    let result = input.replace(/[a-zA-Z]+$/, '');
+
+    if (result === '') {
+      return 1;
+    }
+
+    const fractionalRegExp = /\//g;
+
+    if (fractionalRegExp.test(result)) {
+      const fractionalMatch = result.match(fractionalRegExp);
+
+      if (fractionalMatch.length > 1) {
+        return 'invalid number';
+      }
+
+      const resultArr = result.split('/');
+      
+      result = resultArr[0] / resultArr[1];
+    }
     
     return result;
   };
