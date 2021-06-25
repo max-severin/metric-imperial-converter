@@ -7,6 +7,15 @@ function ConvertHandler() {
     mi: 'km',
     km: 'mi',
   };
+
+  this.spellOutUnitMap = {
+    gal: 'gallons',
+    L: 'liters',
+    lbs: 'pounds',
+    kg: 'kilograms',
+    mi: 'miles',
+    km: 'kilometers',
+  };
   
   this.getNum = function(input) {
     let result = input.replace(/[a-zA-Z]+$/, '');
@@ -55,9 +64,7 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
-    let result;
-    
-    return result;
+    return this.spellOutUnitMap[unit];
   };
   
   this.convert = function(initNum, initUnit) {
